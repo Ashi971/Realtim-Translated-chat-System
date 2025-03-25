@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-time Translation System</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Real-time Translation System</h1>
+        <div class="mode-selector">
+            <h2>Select Your Role</h2>
+            <form id="roleForm" novalidate>  <!-- Added novalidate attribute -->
+                <div class="form-group">
+                    <label for="role">I want to be:</label>
+                    <select id="role" required>
+                        <option value="">-- Select Role --</option>
+                        <option value="server">Server (Start Conversation)</option>
+                        <option value="client">Client (Join Conversation)</option>
+                    </select>
+                </div>
+                
+                <div id="serverOptions" style="display:none;">
+                    <div class="form-group">
+                        <label for="server_lang">Your Language:</label>
+                        <select id="server_lang">
+                            {% for code, lang in SUPPORTED_LANGUAGES.items() %}
+                            <option value="{{ code }}">{{ lang }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="client_lang">Other Language:</label>
+                        <select id="client_lang">
+                            {% for code, lang in SUPPORTED_LANGUAGES.items() %}
+                            <option value="{{ code }}">{{ lang }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                
+                <div id="clientOptions" style="display:none;">
+                    <div class="form-group">
+                        <label for="room_id">Room ID:</label>
+                        <input type="text" id="room_id" placeholder="Enter room ID">
+                    </div>
+                </div>
+                
+                <button type="button" id="continueBtn">Continue</button>  <!-- Changed to type="button" -->
+            </form>
+        </div>
+    </div>
+
+    <script src="/static/js/script.js"></script>
+</body>
+</html>

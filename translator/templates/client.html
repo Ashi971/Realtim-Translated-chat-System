@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Client - Real-time Translation</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Client - Real-time Translation</h1>
+            <div class="language-info">
+                <span>Your Language: {{ SUPPORTED_LANGUAGES[client_lang] }}</span>
+                <span>Server's Language: {{ SUPPORTED_LANGUAGES[server_lang] }}</span>
+                <span>Room ID: {{ room_id }}</span>
+            </div>
+        </div>
+        
+        <div class="status-box">
+            <div id="connectionStatus">Connecting to server...</div>
+        </div>
+        
+        <div class="chat-container">
+            <div class="chat-box" id="chatBox"></div>
+            
+            <div class="input-area">
+                <input type="text" id="messageInput" placeholder="Type your message...">
+                <button id="sendMessage">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <script>
+        const serverLang = "{{ server_lang }}";
+        const clientLang = "{{ client_lang }}";
+        const roomId = "{{ room_id }}";
+        const role = "client";
+    </script>
+    <script src="/static/js/script.js"></script>
+</body>
+</html>
