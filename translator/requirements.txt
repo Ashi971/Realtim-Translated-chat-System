@@ -1,0 +1,8 @@
+Flask==2.0.1
+Flask-SocketIO==5.1.1
+python-engineio==4.0.0
+python-socketio==5.0.4
+SpeechRecognition==3.8.1
+deep-translator==1.9.2
+edge-tts==5.0.0
+pygame==2.0.1
